@@ -32,7 +32,7 @@ g_bow = [g_dict.doc2bow(simple_preprocess(line)) for line in text]
 print("Dictionary : ")
 for item in g_bow:
     print([[g_dict[id], freq] for id, freq in item])
-    
+    print("hii")
 ##OUTPUT##
 '''
 Output for Bag of Words:
