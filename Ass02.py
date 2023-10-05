@@ -32,7 +32,14 @@ g_bow = [g_dict.doc2bow(simple_preprocess(line)) for line in text]
 print("Dictionary : ")
 for item in g_bow:
     print([[g_dict[id], freq] for id, freq in item])
-    print("hii")
+
+g_tfidf = models.TfidfModel(g_bow, smartirs='ntc')
+
+print("\n TF-IDF Vector:")
+for item in g_tfidf[g_bow]:
+    print([[g_dict[id], np.around(freq, decimals=2)] for id, freq in item])
+
+
 ##OUTPUT##
 '''
 Output for Bag of Words:
@@ -42,4 +49,7 @@ Bag of Words :  [[(0, 3), (1, 3), (2, 1), (3, 1), (4, 1), (5, 3), (6, 2), (7, 1)
 Output for TFIDF:
 Dictionary : 
 [['dog', 3], ['hat', 2], ['in', 1], ['sat', 3], ['the', 5], ['with', 1]]
+
+TF-IDF Vector:
+[['dog', 0.43], ['hat', 0.29], ['in', 0.14], ['sat', 0.43], ['the', 0.71], ['with', 0.14]]
 '''
